@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cadastro</title>
+    <link rel="icon" type="image/png" href="../imgs/IconeCamisa3.png" sizes="32x32">
+
+    <link rel="stylesheet" href="editarCadastro.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">HOME</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Editar Cadastro</h1>
+            <form id="editarCadastroForm">
+                <div class="form-group">
+                    <label for="editNome">Nome:</label>
+                    <input type="text" id="editNome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editTipoUsuario">Tipo de Conta:</label>
+                    <select id="editTipoUsuario" required>
+                        <option value="doador">Doador</option>
+                        <option value="pontoColeta">Ponto de Coleta</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group cep-group">
+                        <label for="editCep">CEP:</label>
+                        <input type="text" id="editCep" maxlength="8" required>
+                        <small>Apenas números (ex: 12345678)</small>
+                    </div>
+                    <div class="form-group numero-group">
+                        <label for="editNumero">Número:</label>
+                        <input type="text" id="editNumero" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" id="buscarEndereco" disabled>Buscar Endereço</button>
+                </div>
+
+                <div id="enderecoResultado"></div>
+
+                <div class="form-group">
+                    <label for="editComplemento">Complemento:</label>
+                    <input type="text" id="editComplemento">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelarEdicaoBtn">Cancelar</button>
+                    <button type="submit" id="salvarEdicaoBtn">Salvar Alterações</button>
+                </div>
+            </form>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Vestindo Esperança 2025</p>
+    </footer>
+
+    <script src="dbFake.js"></script>
+    <script src="viaCepService.js"></script>
+    <script src="editarCadastro.js"></script>
+    
+</body>
+
+</html>

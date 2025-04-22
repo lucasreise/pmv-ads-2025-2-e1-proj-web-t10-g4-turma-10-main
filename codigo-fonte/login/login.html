@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entre em sua conta</title>
+    <link rel="icon" type="image/png" href="../imgs/IconeCamisa3.png" sizes="32x32">
+    
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">HOME</a>
+            <a href="../login.html">LOGIN</a>
+            <a href="../cadastro.html">CADASTRAR</a>
+        </nav>
+    </header> 
+
+    <main>
+        <div class="container">
+            <h1>Entre em sua conta</h1>
+            <img src="../imgs/IconeCamisa3.png" alt="">
+            <form id="login">
+                <div class="form-group">
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" id="usuario" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="execLogin">Entrar</button>
+                    <button type="button" id="cancelarLogin">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Vestindo Esperança 2025</p>
+    </footer>
+    <script src="login.js"></script>
+</body>
+</html>

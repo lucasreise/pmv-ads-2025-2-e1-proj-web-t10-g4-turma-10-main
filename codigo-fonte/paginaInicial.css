@@ -1,0 +1,161 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Consolas', 'Inconsolata';
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex: 0 0 auto;
+}
+
+nav {
+    background-color: #808080;
+    min-height: 6vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 15px;
+}
+
+nav a {
+    padding: 10px;
+    border: 1px solid #696969;
+    background-color: #4F4F4F;
+    color: #FFF;
+    text-decoration: none;
+    height: 5vh;
+    border-radius: 4px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #A9A9A9;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    padding: 20px;
+    background-color: #DCDCDC;
+}
+
+a {
+    font-size: 2vh;
+}
+
+footer {
+    background-color: #808080;
+    min-height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+}
+
+footer p {
+    font-size: 2vh;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 5vh;
+    color: #333;
+}
+
+p {
+    font-size: 2vh;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    max-height: 300px;
+    margin: 15px 0;
+    object-fit: contain;
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 8px;
+    }
+    
+    nav a {
+        width: 100%;
+        margin: 2px 0;
+    }
+    
+    main {
+        padding: 15px;
+    }
+
+    .container img {
+        max-height: 150px;
+    }
+
+    h1 {
+        font-size: 4vh;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    nav a {
+        padding: 8px;
+        font-size: 14px;
+        height: auto;
+    }
+    
+    .container h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container p {
+        font-size: 0.9rem;
+    }
+
+    .container img {
+        max-height: 120px;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 480px) {
+    .container img {
+        max-height: 25vh;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .container img {
+        max-height: 40vh;
+    }
+}
