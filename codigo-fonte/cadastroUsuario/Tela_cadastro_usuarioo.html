@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <header>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="login/login.html">LOGIN</a>
+        <a href="cadastro/cadastro.html">CADASTRAR</a>
+    </nav>
+</header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuário</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <div class="container">
+    <h1>CADASTRO</h1>
+    <input type="text" id="nome" placeholder="Nome:" required>
+    <input type="email" id="email" placeholder="Email:" required>
+    <input type="password" id="senha" placeholder="Senha:" required>
+    <input type="password" id="confirmacaoSenha" placeholder="Confirmação senha:" required>
+    <input type="text" id="cep" placeholder="Cep: 00000-000" required>
+    <input type="text" id="numeroEndereco" placeholder="Número do endereço:" required>
+    <button class="button" onclick="buscarEndereco()">Buscar endereço</button>
+    <div class="info-endereco" id="enderecoCompleto">Endereço: </div>
+    
+    <label for="tipoUsuario">Você deseja ser um doador ou ponto de coleta:</label>
+    <select id="tipoUsuario" required>
+      <option value="">Selecione o tipo da conta</option>
+      <option value="doador">Doador</option>
+      <option value="ponto">Ponto de coleta</option>
+    </select>
+    
+    <button class="button" onclick="cadastrarUsuario()">Cadastrar</button>
+  </div>
+
+  <script>
+    function validarSenha() {
+      const senha = document.getElementById("senha").value;
+      const confirmacao = document.getElementById("confirmacaoSenha").value;
+      return senha === confirmacao;
+    }
+
+    function buscarEndereco() {
+      const cep = document.getElementById("cep").value.replace('-', '');
+      if (cep.length !== 8) {
+        alert("Informe um CEP válido no formato 00000-000.");
+        return;
+      }
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.erro) {
+            document.getElementById("enderecoCompleto").textContent = "Endereço: CEP não encontrado.";
+          } else {
+            document.getElementById("enderecoCompleto").textContent = 
+              `Endereço: ${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
+          }
+        })
+        .catch(error => {
+          document.getElementById("enderecoCompleto").textContent = "Endereço: Erro ao buscar CEP.";
+        });
+    }
+
+    function cadastrarUsuario() {
+      if (!validarSenha()) {
+        alert("As senhas não coincidem!");
+        return;
+      }
+
+      const cep = document.getElementById("cep").value.replace('-', '');
+      if (cep.length !== 8) {
+        alert("Informe um CEP válido com 8 dígitos (ex: 00000-000).");
+        return;
+      }
+
+      alert("Cadastro efetuado com sucesso!");
+    }
+  </script>
+</body>
+</html>
